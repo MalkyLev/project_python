@@ -1,0 +1,24 @@
+
+{% extends 'index.html'  %}
+
+{% block head %}
+    <title>Edit_purchase</title>
+{%endblock%}
+
+{%  block body%}
+<form class="formAP" method="POST">
+    <label for="item_name">שם פריט</label>
+    <input type="text" id="item_name" name="item_name" value="{{ purchase.item_name }}" required>
+
+    <label for="qty">כמות</label>
+    <input type="text" id="qty" name="qty" value="{{ purchase.qty }}" required>
+
+    <label for="price">מחיר</label>
+    <input type="text" id="price" name="price" value="{{ purchase.price }}" required>
+
+    <label for="category">קטגוריה</label>
+    <input type="text" id="category" name="category" value="{{ purchase.category }}" required>
+
+    <button class="btnAddRL" type="submit">שמור שינויים</button>
+</form>
+{%endblock%}

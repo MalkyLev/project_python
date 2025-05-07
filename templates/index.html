@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+<div class="center-wrapper">
+  <nav>
+         <a href="{{ url_for('logout') }}">התנתק</a>
+         <a href="/personal_area">איזור אישי</a>
+         <a href="/Login">התחבר</a>
+         <a href="/Register">הרשם</a>
+         <a href="/">בית</a>
+  </nav>
+
+   {% block body%}
+  <br>
+  <br>
+  <div class="home">
+  <h1>לקנות חכם</h1>
+  <p>אפליקציה לניהול קניות ומשק בית</p>
+  <img src="../static/images/cart.png" alt="תיאור התמונה">
+      </div>
+    {% endblock %}
+    </div>
+</body>
+</html>

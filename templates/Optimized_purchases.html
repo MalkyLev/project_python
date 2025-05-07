@@ -1,0 +1,36 @@
+{% extends 'index.html'  %}
+
+{% block head %}
+    <title>Optimized Purchases</title>
+{% endblock %}
+
+{% block body %}
+<h1>יעל את קניותך</h1>
+{% if optimized_purchases %}
+        <table>
+            <thead>
+                <tr>
+                    <th>מחיר ששולם</th>
+                    <th>מחיר בחנות</th>
+                     <th>שם פריט</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for purchase in optimized_purchases %}
+                <tr>
+
+                    <td>{{ purchase.price_paid }}</td>
+                    <td>{{ purchase.shop_price }}</td>
+                                <td>{{ purchase.item_name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+<br>
+<br>
+    <button class="btnAddRL" onclick="window.location.href='/personal_area'" style="display: block; margin: 0 auto;">חזרה לאיזור האישי</button>
+
+    {% else %}
+        <p>לא נמצאו רכישות אופטימליות</p>
+    {% endif %}
+{% endblock %}

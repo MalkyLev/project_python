@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block head %}
+    <title>Graphs</title>
+{% endblock %}
+
+{% block body %}
+
+{% if graph1 %}
+    <h2>גרף הוצאות שבועיות</h2>
+    <img  src="{{ url_for('static', filename='graphs/' + graph1) }}" alt="Weekly Expenses Graph">
+{% endif %}
+
+{% if graph2 %}
+    <h2>השוואת הוצאות חודשיות</h2>
+    <img  src="{{ url_for('static', filename='graphs/' + graph2) }}" alt="Monthly Expenses Graph">
+{% endif %}
+<br>
+<br>
+    <button class="btnAddRL" onclick="window.location.href='/personal_area'" style="display: block; margin: 0 auto;">חזרה לאיזור האישי</button>
+{% endblock %}

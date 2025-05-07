@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block head %}
+    <title>Personal area</title>
+{% endblock %}
+
+{% block body %}
+<div class="button-container">
+    <div class="diagonal-text">דוגמא בלבד</div>
+    <button class="top-buttons" onclick="window.location.href='/demoProfile/getMore'"> כל הקניות </button>
+    <button class="top-buttons" onclick="window.location.href='/Register'">קניות משבוע אחרון</button>
+    <button class="top-buttons" onclick="window.location.href='/Register'">גיבוי נתונים</button>
+    <button class="top-buttons" onclick="window.location.href='/Register'">הורד את הקובץ</button>
+    <button class="top-buttons" onclick="window.location.href='/Register'"> סך הוצאות בכל שבוע</button>
+    <button class="top-buttons" onclick="window.location.href='/Register'"> ממוצע הוצאות לפי חודש </button>
+    <button class="top-buttons" onclick="window.location.href='/Register'">ליעול קניות </button>
+</div>
+  <h1>הקניות שלך</h1>
+  {% if df.shape[0] > 0 %}
+       <table border="1">
+        <tr>
+            <th>קוד</th>
+            <th>שם</th>
+            <th>מחיר</th>
+            <th>תאריך</th>
+        </tr>
+        {% for index, row in df.iterrows() %}
+        <tr>
+            <td>{{ row['Code'] }}</td>
+            <td>{{ row['Name'] }}</td>
+            <td>{{ row['Price'] }}</td>
+            <td>{{ row['Date'].strftime('%Y-%m-%d') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>!אין קניות להציג</p>
+    {% endif %}
+<br>
+<br>
+
+    {% if request.args.get('graph') %}
+        <img src="{{ url_for('static', filename='graphs/' + request.args.get('graph').split('/')[-1]) }}" alt="Monthly Expenses Comparison">
+    {% endif %}
+{% endblock %}
