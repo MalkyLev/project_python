@@ -211,21 +211,9 @@ def save_data():
     df = pd.DataFrame(data)
 
     backup_directory = 'C:\\Users\\User\\Desktop\\python project'
-    # וצר
-    # נתיב
-    # לקובץ
-    # CSV
-    # שבו
-    # יישמרו
-    # הנתונים
+    #יצירת נתיב לCSV
     file_path = os.path.join(backup_directory, f'backup_data_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv')
-    # שומר
-    # את
-    # ה - DataFrame
-    # לקובץ
-    # CSV
-    # בנתיב
-    # שנוצר
+    #שמירה בCSV
     df.to_csv(file_path, index=False)
     return redirect(url_for('personal_area'))
 
